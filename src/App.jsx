@@ -1,60 +1,31 @@
 import { useState } from "react";
 import "./index.css";
 
-const DUMMY_RECIPES = [
-  {
-    id: 1,
-    name: "Krämig pastapanna med ost",
-    ingredients: ["pasta", "ost", "mjölk", "lök", "smör"],
-    time: 25,
-    instructions: "Koka pasta, gör ostsås, blanda allt i stekpanna.",
-    tags: ["snabbt", "vegetariskt"],
-  },
-  {
-    id: 2,
-    name: "Omelett med ost och lök",
-    ingredients: ["ägg", "ost", "lök", "smör"],
-    time: 10,
-    instructions: "Vispa ägg, fräs lök, häll över, toppa med ost.",
-    tags: ["snabbt", "låg-disk"],
-  },
-  {
-    id: 3,
-    name: "Ugnsrostade grönsaker",
-    ingredients: ["potatis", "morot", "lök", "olja", "salt"],
-    time: 40,
-    instructions:
-      "Skär grönsaker, ringla över olja och kryddor, rosta i ugn tills mjuka.",
-    tags: ["vego", "billigt"],
-  },
-];
-
-function matchRecipes(userIngredientsRaw, recipes) {
-  const set = new Set(
-    userIngredientsRaw
-      .split(",")
-      .map((i) => i.trim().toLowerCase())
-      .filter(Boolean)
-  );
-
-  if (set.size === 0) return [];
-
-  return recipes
-    .map((recipe) => {
-      const recipeIngredients = recipe.ingredients.map((i) => i.toLowerCase());
-      const hits = recipeIngredients.filter((i) => set.has(i));
-      const score = hits.length / recipeIngredients.length;
-
-      return {
-        ...recipe,
-        score,
-        matched: hits,
-        missing: recipeIngredients.filter((i) => !set.has(i)),
-      };
-    })
-    .filter((r) => r.score > 0)
-    .sort((a, b) => b.score - a.score);
+function buildNamesOnlyString(ingredients) {
+  return ingredients
+    .filter((ing) => ing.name && ing.name.trim() !== "")
+    .map((ing) => ing.name.trim())
+    .join(", ");
 }
+
+function buildDetailedString(ingredients) {
+  return ingredients
+    .filter((ing) => ing.name && ing.name.trim() !== "")
+    .map((ing) => {
+      const name = ing.name.trim();
+      const amount = ing.amount?.trim();
+      const unit = ing.unit?.trim();
+
+      if (!amount && !unit) return name;
+      if (amount && !unit) return `${amount} ${name}`;
+      if (!amount && unit) return `${unit} ${name}`;
+      return `${amount} ${unit} ${name}`;
+    })
+    .join(", ");
+}
+
+
+
 
 function RecipeCard({ recipe }) {
   const percentage = Math.round(recipe.score * 100);
@@ -109,37 +80,91 @@ function RecipeCard({ recipe }) {
   );
 }
 
-const quickTags = [
-  "ägg",
-  "mjölk",
-  "ost",
-  "pasta",
-  "lök",
-  "potatis",
-  "morot",
-  "smör",
-  "olja",
-];
+const quickTags = ["ägg", "mjölk", "ost", "pasta", "lök", "potatis", "morot"];
+
+
+
 
 function App() {
-  const [ingredientsText, setIngredientsText] = useState("");
+  const [ingredients, setIngredients] = useState([
+  { name: "", amount: "", unit: "" },
+]);
+
   const [results, setResults] = useState([]);
   const [showOnlyFullMatches, setShowOnlyFullMatches] = useState(false);
+  const [aiText, setAiText] = useState("");
+const [aiLoading, setAiLoading] = useState(false);
 
-  const handleSearch = () => {
-    const baseResults = matchRecipes(ingredientsText, DUMMY_RECIPES);
-    const filtered = showOnlyFullMatches
-      ? baseResults.filter((r) => r.score === 1)
-      : baseResults;
-    setResults(filtered);
-  };
-
-  const handleAddQuickIngredient = (ingredient) => {
-    if (!ingredientsText.toLowerCase().includes(ingredient.toLowerCase())) {
-      const separator = ingredientsText.trim() ? ", " : "";
-      setIngredientsText((prev) => prev + separator + ingredient);
+const handleAddQuickIngredient = (name) => {
+  setIngredients((prev) => {
+    if (prev.some((ing) => ing.name.toLowerCase() === name.toLowerCase())) {
+      return prev;
     }
-  };
+    return [...prev, { name, amount: "", unit: "" }];
+  });
+};
+
+
+
+const handleSearch = async () => {
+  try {
+    // bygg en enkel kommatext med bara namnen: "mjölk, ägg, pasta"
+    const namesOnly = buildNamesOnlyString(ingredients);
+
+    const response = await fetch("http://localhost:3000/api/recipes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ingredients: namesOnly }),
+    });
+
+    const data = await response.json();
+
+    const filtered = showOnlyFullMatches
+      ? data.filter((r) => r.score === 1)
+      : data;
+
+    setResults(filtered);
+  } catch (error) {
+    console.error("Fel vid hämtning av recept:", error);
+    alert("Kunde inte hämta recept från servern.");
+  }
+};
+
+const handleAiSearch = async () => {
+  try {
+    setAiLoading(true);
+    setAiText("");
+
+    // bygg en text med mängd + enhet: "2 dl mjölk, 3 st ägg"
+    const detailed = buildDetailedString(ingredients);
+
+    const response = await fetch("http://localhost:3000/api/ai-recipes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ingredients: detailed }),
+    });
+
+    const data = await response.json();
+
+    if (data.error) {
+      alert(data.error);
+    } else {
+      setAiText(data.text);
+    }
+  } catch (error) {
+    console.error("Fel vid AI-sökning:", error);
+    alert("Kunde inte hämta AI-recept just nu.");
+  } finally {
+    setAiLoading(false);
+  }
+};
+
+
+
 
   return (
     <div className="page">
@@ -161,47 +186,121 @@ function App() {
         <section className="card">
           <h1>Vad har du hemma?</h1>
           <p className="subtitle">
-            Skriv in ingredienserna du har i kyl, frys och skafferi, separerade
-            med kommatecken. Vi matchar dem mot receptförslag.
+            Skriv in ingredienserna du har i kyl, frys och skafferi. Vi matchar dem mot receptförslag.
           </p>
 
-          <label className="label" htmlFor="ingredients">
-            Ingredienser
-          </label>
-          <textarea
-            id="ingredients"
-            value={ingredientsText}
-            onChange={(e) => setIngredientsText(e.target.value)}
-            placeholder="Ex: ägg, mjölk, ost, lök, pasta"
-          />
+<label className="label">
+  Ingredienser (namn, mängd, enhet)
+</label>
 
-          <div className="tags-row">
-            {quickTags.map((tag) => (
-              <button
-                key={tag}
-                type="button"
-                className="tag-btn"
-                onClick={() => handleAddQuickIngredient(tag)}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
+{/* INGREDIENS-LISTA MED MÄNGDER */}
+<div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+  {ingredients.map((ing, index) => (
+    <div
+      key={index}
+      style={{
+        display: "grid",
+        gridTemplateColumns: "2fr 1fr 1fr auto",
+        gap: "0.5rem",
+        alignItems: "center",
+      }}
+    >
+      <input
+        type="text"
+        placeholder="t.ex. mjölk"
+        value={ing.name}
+        onChange={(e) => {
+          const updated = [...ingredients];
+          updated[index].name = e.target.value;
+          setIngredients(updated);
+        }}
+      />
+
+      <input
+        type="text"
+        placeholder="mängd"
+        value={ing.amount}
+        onChange={(e) => {
+          const updated = [...ingredients];
+          updated[index].amount = e.target.value;
+          setIngredients(updated);
+        }}
+      />
+
+      <input
+        type="text"
+        placeholder="enhet (dl, st, g...)"
+        value={ing.unit}
+        onChange={(e) => {
+          const updated = [...ingredients];
+          updated[index].unit = e.target.value;
+          setIngredients(updated);
+        }}
+      />
+
+      <button
+        type="button"
+        onClick={() => {
+          const filtered = ingredients.filter((_, i) => i !== index);
+          setIngredients(filtered.length ? filtered : [{ name: "", amount: "", unit: "" }]);
+        }}
+      >
+        ❌
+      </button>
+    </div>
+  ))}
+
+  {/* Lägg till ny ingrediens-rad */}
+  <button
+    type="button"
+    className="tag-btn"
+    onClick={() => setIngredients(prev => [...prev, { name: "", amount: "", unit: "" }])}
+  >
+    + Lägg till ingrediens
+  </button>
+</div>
+
+{/* 🔥 SNABBKNAPPAR — NU PÅ RÄTT PLATS 🔥 */}
+<div className="tags-row" style={{ margin: "1rem 0" }}>
+  {quickTags.map(tag => (
+    <button
+      key={tag}
+      className="tag-btn"
+      onClick={() => handleAddQuickIngredient(tag)}
+    >
+      {tag}
+    </button>
+  ))}
+</div>
+
+
 
           <div className="controls">
-            <label className="checkbox-label">
-              <input
-                type="checkbox"
-                checked={showOnlyFullMatches}
-                onChange={(e) => setShowOnlyFullMatches(e.target.checked)}
-              />
-              Visa bara recept där jag har alla ingredienser
-            </label>
+  <label className="checkbox-label">
+    <input
+      type="checkbox"
+      checked={showOnlyFullMatches}
+      onChange={(e) => setShowOnlyFullMatches(e.target.checked)}
+    />
+    Visa bara recept där jag har alla ingredienser
+  </label>
 
-            <button type="button" className="primary-btn" onClick={handleSearch}>
-              🔍 Hitta recept
-            </button>
-          </div>
+  <div style={{ display: "flex", gap: "0.5rem" }}>
+    <button type="button" className="primary-btn" onClick={handleSearch}>
+      🔍 Vanliga recept
+    </button>
+    <button
+      type="button"
+      className="primary-btn"
+      onClick={handleAiSearch}
+      disabled={aiLoading}
+      style={{ backgroundColor: "#6366f1" }}
+    >
+      {aiLoading ? "🤖 Tänker..." : "🤖 AI-recept"}
+    </button>
+  </div>
+</div>
+
         </section>
 
         <section className="results">
@@ -229,13 +328,42 @@ function App() {
           )}
         </section>
 
+        <section className="results" style={{ marginTop: "1.5rem" }}>
+  <div className="results-header">
+    <h2>AI-genererade recept</h2>
+    <p className="results-info">
+      {aiText
+        ? "Förslag från AI baserat på dina ingredienser"
+        : "Inga AI-förslag ännu"}
+    </p>
+  </div>
+
+  {aiText ? (
+    <div
+      style={{
+        marginTop: "0.75rem",
+        whiteSpace: "pre-wrap",
+        background: "#f3f4ff",
+        borderRadius: "14px",
+        padding: "0.9rem",
+        fontSize: "0.9rem",
+      }}
+    >
+      {aiText}
+    </div>
+  ) : (
+    <div className="empty-state">
+      Klicka på <strong>AI-recept</strong> så föreslår AI tre rätter utifrån
+      dina ingredienser.
+    </div>
+  )}
+</section>
+
+
         <section className="footer-info">
           <h3>På gång</h3>
           <p>
-            Den här versionen använder en enkel lokal receptlista. Nästa steg är
-            att koppla på en riktig backend och AI som kan skapa receptförslag
-            utifrån just dina ingredienser, kostpreferenser och hur mycket tid
-            du har.
+            Den här versionen använder en enkel lokal receptlista. Den utvecklas hela tiden och denna hemsidan blir således bättre och bättre.
           </p>
         </section>
       </main>

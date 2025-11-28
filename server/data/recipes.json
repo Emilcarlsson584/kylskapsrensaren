@@ -1,0 +1,492 @@
+[
+  {
+    "id": 1,
+    "title": "Köttbullar med potatismos, pressgurka & sås",
+    "ingredients": [
+      { "name": "blandfärs", "amount": "700 g" },
+      { "name": "gul lök", "amount": "1" },
+      { "name": "dijonsenap", "amount": "1 msk" },
+      { "name": "ströbröd", "amount": "3/4 dl" },
+      { "name": "ägg", "amount": "1" },
+      { "name": "vispgrädde", "amount": "2 dl" },
+      { "name": "salt", "amount": "" },
+      { "name": "peppar", "amount": "" },
+      { "name": "smör", "amount": "till stekning" },
+
+      { "name": "lingon", "amount": "3 dl" },
+      { "name": "strösocker", "amount": "1 dl" },
+
+      { "name": "gurka", "amount": "1" },
+      { "name": "salt", "amount": "1/2 tsk" },
+      { "name": "ättikssprit 12%", "amount": "2 msk" },
+      { "name": "vatten", "amount": "3/4 dl" },
+      { "name": "strösocker", "amount": "3 msk" },
+      { "name": "persilja", "amount": "1/2 dl hackad" },
+
+      { "name": "potatis", "amount": "700 g" },
+      { "name": "smör", "amount": "75 g" },
+      { "name": "vispgrädde", "amount": "1 dl" },
+      { "name": "vitpeppar", "amount": "mald" },
+
+      { "name": "kalvbuljong", "amount": "2 dl (vatten + tärning/fond)" },
+      { "name": "vispgrädde", "amount": "2 dl" }
+    ],
+    "time": 60,
+    "tags": ["svenskt", "husmanskost", "kött", "klassiker"],
+    "url": "https://recept.se/recept/kottbullar-med-potatismos-och-graddsas",
+    "Instructions": [
+      "Blanda ströbröd och vispgrädde i en skål och låt svälla i ca 10 minuter.",
+      "Finhacka löken och stek den mjuk i smör utan att få färg.",
+      "Blanda färs, lök, dijonsenap, ägg, salt och peppar med ströbrödsblandningen. Arbeta ihop till en smidig färs.",
+      "Rulla små köttbullar och stek dem i smör tills de fått fin yta och är genomstekta.",
+      "Koka potatisen mjuk i lättsaltat vatten.",
+      "Häll av vattnet och pressa potatisen. Tillsätt smör och vispgrädde och vispa till ett luftigt mos. Krydda med salt och vitpeppar.",
+      "Skiva gurkan tunt, gärna med mandolin.",
+      "Blanda ättikssprit, vatten, socker och salt. Lägg i gurkan och rör om. Strö över persilja och låt stå minst 20 minuter.",
+      "Blanda lingon med strösocker och rör tills sockret lösts upp.",
+      "Hetta upp en kastrull och tillsätt buljong och vispgrädde.",
+      "Låt sjuda tills såsen reducerat och tjocknat. Smaka av med salt och peppar.",
+      "Servera köttbullarna med mos, pressgurka, lingon och gräddsås."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Spaghetti med köttfärssås",
+    "ingredients": [
+      { "name": "gul lök", "amount": "1" },
+      { "name": "vitlöksklyftor", "amount": "2" },
+      { "name": "morötter", "amount": "2" },
+      { "name": "nötfärs", "amount": "500 g" },
+      { "name": "matolja", "amount": "2 msk" },
+      { "name": "tomatpuré", "amount": "1/2 dl" },
+      { "name": "krossade tomater", "amount": "500 g" },
+      { "name": "vatten", "amount": "2 1/2 dl" },
+      { "name": "kycklingbuljongtärning", "amount": "1" },
+      { "name": "kinesisk soja", "amount": "1 tsk" },
+      { "name": "salt", "amount": "efter smak" },
+      { "name": "svartpeppar", "amount": "efter smak" },
+      { "name": "spaghetti", "amount": "4 portioner" }
+    ],
+    "time": 30,
+    "tags": ["snabbt", "pasta", "familjefavorit", "kött"],
+    "Instructions": [
+      "Skala och finhacka gul lök och vitlök. Riv eller finhacka morötterna.",
+      "Hetta upp matolja i en panna och fräs lök och morötter tills de mjuknar.",
+      "Tillsätt nötfärsen och stek den tills den är genomstekt och smulig. Krydda med salt och peppar.",
+      "Rör ner tomatpuré och låt fräsa någon minut.",
+      "Tillsätt krossade tomater, vatten, buljongtärning och soja. Låt sjuda under lock i 15–20 minuter. Smaka av med salt och peppar.",
+      "Koka spaghettin enligt anvisningarna på förpackningen.",
+      "Servera köttfärssåsen med spaghettin. Toppa gärna med riven parmesan."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Korv Stroganoff",
+    "ingredients": [
+      { "name": "falukorv", "amount": "500 g" },
+      { "name": "gul lök", "amount": "1" },
+      { "name": "tomatpuré", "amount": "2 msk" },
+      { "name": "grädde", "amount": "2 dl" },
+      { "name": "krossade tomater", "amount": "400 g" },
+      { "name": "smör", "amount": "1 msk" },
+      { "name": "salt", "amount": "efter smak" },
+      { "name": "svartpeppar", "amount": "efter smak" },
+      { "name": "ris", "amount": "4 portioner" }
+    ],
+    "time": 25,
+    "tags": ["snabbt", "billigt", "barnvänligt"],
+    "Instructions": [
+      "Koka ris enligt förpackningen.",
+      "Hacka lök och strimla falukorv.",
+      "Fräs lök i smör tills mjuk.",
+      "Tillsätt korv och stek tills den får färg.",
+      "Rör ner tomatpuré, krossade tomater och grädde.",
+      "Låt sjuda 10 minuter. Smaka av med salt och peppar."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Pannkakor",
+    "ingredients": [
+      { "name": "ägg", "amount": "3" },
+      { "name": "mjölk", "amount": "6 dl" },
+      { "name": "vetemjöl", "amount": "2,5 dl" },
+      { "name": "salt", "amount": "1 krm" },
+      { "name": "smör", "amount": "till stekning" }
+    ],
+    "time": 20,
+    "tags": ["snabbt", "vegetariskt", "barnvänligt"],
+    "Instructions": [
+      "Vispa ihop ägg, hälften av mjölken, mjöl och salt.",
+      "Tillsätt resten av mjölken och vispa slätt.",
+      "Hetta upp stekpanna med smör.",
+      "Grädda tunna pannkakor gyllene på båda sidor."
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Lax i ugn med citron & dill",
+    "ingredients": [
+      { "name": "laxfilé", "amount": "600 g" },
+      { "name": "citron", "amount": "1" },
+      { "name": "dill", "amount": "1 knippe" },
+      { "name": "salt", "amount": "efter smak" },
+      { "name": "peppar", "amount": "efter smak" },
+      { "name": "potatis", "amount": "800 g" }
+    ],
+    "time": 35,
+    "tags": ["fisk", "enkelt", "nyttigt"],
+    "Instructions": [
+      "Sätt ugnen på 200°C.",
+      "Lägg lax i ugnsform, salta och peppra.",
+      "Pressa citron över och toppa med dill.",
+      "Tillaga i ugnen ca 20 minuter.",
+      "Servera med kokt potatis."
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Chili con Carne",
+    "ingredients": [
+      { "name": "köttfärs", "amount": "500 g" },
+      { "name": "gul lök", "amount": "1" },
+      { "name": "krossade tomater", "amount": "400 g" },
+      { "name": "kidneybönor", "amount": "1 burk" },
+      { "name": "chiliflakes", "amount": "1 tsk" },
+      { "name": "paprikapulver", "amount": "1 tsk" },
+      { "name": "spiskummin", "amount": "1 tsk" },
+      { "name": "salt och peppar", "amount": "efter smak" }
+    ],
+    "time": 30,
+    "tags": ["gryta", "kött", "värmande"],
+    "Instructions": [
+      "Hacka lök och stek med köttfärs.",
+      "Tillsätt tomater, kryddor och bönor.",
+      "Låt puttra 15–20 min.",
+      "Servera med ris eller bröd."
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Ugnspannkaka",
+    "ingredients": [
+      { "name": "ägg", "amount": "3" },
+      { "name": "vetemjöl", "amount": "2,5 dl" },
+      { "name": "mjölk", "amount": "6 dl" },
+      { "name": "salt", "amount": "1 tsk" },
+      { "name": "smör", "amount": "till formen" }
+    ],
+    "time": 30,
+    "tags": ["billigt", "vegetariskt", "lättlagat"],
+    "Instructions": [
+      "Sätt ugnen på 225°C.",
+      "Vispa ihop smet av ägg, mjölk, mjöl och salt.",
+      "Smöra en långpanna.",
+      "Häll smeten och grädda ca 25 min tills gyllene."
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Tacos",
+    "ingredients": [
+      { "name": "nötfärs", "amount": "500 g" },
+      { "name": "tacokrydda", "amount": "1 påse" },
+      { "name": "tortillabröd", "amount": "8 st" },
+      { "name": "sallad", "amount": "1/2 huvud" },
+      { "name": "tomat", "amount": "2" },
+      { "name": "riven ost", "amount": "2 dl" },
+      { "name": "majs", "amount": "1 burk" }
+    ],
+    "time": 20,
+    "tags": ["fredagsmys", "kött", "familjefavorit"],
+    "Instructions": [
+      "Stek köttfärs och krydda med tacokrydda.",
+      "Skär grönsaker.",
+      "Värm tortillas lätt i stekpanna.",
+      "Servera allt i skålar och låt alla bygga sina tacos."
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Kycklinggryta med Curry",
+    "ingredients": [
+      { "name": "kycklingfilé", "amount": "500 g" },
+      { "name": "lök", "amount": "1" },
+      { "name": "grädde", "amount": "2,5 dl" },
+      { "name": "curry", "amount": "2 tsk" },
+      { "name": "ris", "amount": "4 portioner" }
+    ],
+    "time": 30,
+    "tags": ["kyckling", "krämigt", "snabbt"],
+    "Instructions": [
+      "Stek kyckling och lök.",
+      "Tillsätt curry och fräs kort.",
+      "Häll i grädde, låt koka 10–15 min.",
+      "Servera med ris."
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Fiskpinnar med Potatis & Remoulad",
+    "ingredients": [
+      { "name": "fiskpinnar", "amount": "12 st" },
+      { "name": "potatis", "amount": "800 g" },
+      { "name": "remouladsås", "amount": "1 burk" },
+      { "name": "ärtor", "amount": "2,5 dl" }
+    ],
+    "time": 25,
+    "tags": ["snabbt", "fisk", "barnvänligt"],
+    "Instructions": [
+      "Koka potatis.",
+      "Stek fiskpinnar gyllene.",
+      "Servera med remoulad och ärtor."
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Köttfärslimpa med Gräddsås",
+    "ingredients": [
+      { "name": "köttfärs", "amount": "600 g" },
+      { "name": "ströbröd", "amount": "1 dl" },
+      { "name": "ägg", "amount": "1" },
+      { "name": "mjölk", "amount": "1 dl" },
+      { "name": "salt och peppar", "amount": "efter smak" },
+      { "name": "grädde", "amount": "2 dl" },
+      { "name": "potatis", "amount": "800 g" }
+    ],
+    "time": 55,
+    "tags": ["husman", "kött", "söndagsmiddag"],
+    "Instructions": [
+      "Sätt ugnen på 200°C.",
+      "Blanda färs, ägg, ströbröd, mjölk och kryddor.",
+      "Forma limpa och grädda 40–50 min.",
+      "Servera med potatis och gräddsås."
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Våfflor",
+    "ingredients": [
+      { "name": "vetemjöl", "amount": "2,5 dl" },
+      { "name": "mjölk", "amount": "5 dl" },
+      { "name": "ägg", "amount": "2" },
+      { "name": "smör", "amount": "50 g smält" },
+      { "name": "bakpulver", "amount": "2 tsk" }
+    ],
+    "time": 20,
+    "tags": ["fika", "sött", "barnvänligt"],
+    "Instructions": [
+      "Vispa ihop ingredienserna till en smet.",
+      "Grädda våfflor krispiga i järn.",
+      "Servera med sylt och grädde."
+    ]
+  }, 
+  {
+  "id": 13,
+  "title": "Krämig kycklingpasta med spenat & parmesan",
+  "ingredients": [
+    { "name": "kycklingfilé", "amount": "400 g" },
+    { "name": "pasta", "amount": "300 g" },
+    { "name": "grädde", "amount": "2,5 dl" },
+    { "name": "vitlök", "amount": "2 klyftor" },
+    { "name": "spenat", "amount": "70 g" },
+    { "name": "parmesan", "amount": "1,5 dl riven" },
+    { "name": "olja/smör", "amount": "1 msk" },
+    { "name": "salt & peppar", "amount": "efter smak" }
+  ],
+  "time": 25,
+  "tags": ["kyckling","pasta","krämigt"],
+  "Instructions": [
+    "Koka pastan enligt anvisningarna.",
+    "Strimla kycklingen, stek i smör tills gyllene.",
+    "Tillsätt pressad vitlök och fräs 1 minut.",
+    "Häll i grädde + parmesan och sjud 3–4 min.",
+    "Vänd ner spenaten och den kokta pastan.",
+    "Smaka av med salt och peppar & servera."
+  ]
+},
+
+{
+  "id": 14,
+  "title": "Halloumi fajitas med paprika & lime",
+  "ingredients": [
+    { "name": "halloumi", "amount": "250 g" },
+    { "name": "paprika", "amount": "2 st" },
+    { "name": "gul lök", "amount": "1 st" },
+    { "name": "tortillabröd", "amount": "6 st" },
+    { "name": "crème fraiche", "amount": "2 dl" },
+    { "name": "lime", "amount": "1 st" },
+    { "name": "olja", "amount": "1 msk" },
+    { "name": "salt & peppar", "amount": "efter smak" }
+  ],
+  "time": 20,
+  "tags": ["vegetariskt","fredagsmys"],
+  "Instructions": [
+    "Strimla lök och paprika, skär halloumi i stavar.",
+    "Stek halloumi hårt tills krispig, lyft åt sidan.",
+    "Fräs paprika + lök 3–4 min, salta & peppra.",
+    "Värm tortillabröd i stekpanna.",
+    "Fyll med halloumi, grönsaker, pressad lime & crème fraiche."
+  ]
+},
+
+{
+  "id": 15,
+  "title": "Krämig fisksoppa med dill & citron",
+  "ingredients": [
+    { "name": "torsk", "amount": "400 g" },
+    { "name": "potatis", "amount": "4 st" },
+    { "name": "morot", "amount": "2 st" },
+    { "name": "gul lök", "amount": "1 st" },
+    { "name": "grädde", "amount": "2 dl" },
+    { "name": "fiskbuljong", "amount": "1 tärning" },
+    { "name": "vatten", "amount": "6 dl" },
+    { "name": "dill", "amount": "1 knippe" },
+    { "name": "citron", "amount": "1/2 st" }
+  ],
+  "time": 30,
+  "tags": ["soppa","fisk","värmande"],
+  "Instructions": [
+    "Tärna potatis, morot och lök — fräs snabbt i smör.",
+    "Häll i vatten + buljong och sjud 12–15 min.",
+    "Lägg i tärnad torsk och sjud 5 min.",
+    "Tillsätt grädde och finhackad dill.",
+    "Smaka av med citron, salt och peppar."
+  ]
+},
+
+{
+  "id": 16,
+  "title": "Vegansk sötpotatiscurry med kokos & kikärtor",
+  "ingredients": [
+    { "name": "sötpotatis", "amount": "2 st" },
+    { "name": "kikärtor", "amount": "1 burk" },
+    { "name": "kokosmjölk", "amount": "400 ml" },
+    { "name": "gul lök", "amount": "1 st" },
+    { "name": "curry", "amount": "2 tsk" },
+    { "name": "spenat", "amount": "2 nävar" }
+  ],
+  "time": 30,
+  "tags": ["veganskt","gryta","billigt"],
+  "Instructions": [
+    "Fräs lök + curry i olja 1 min.",
+    "Tärna sötpotatis och koka i kokosmjölken 10–12 min.",
+    "Tillsätt kikärtor och sjud 5 min.",
+    "Vänd ner spenaten och smaka av med salt."
+  ]
+},
+
+{
+  "id": 17,
+  "title": "Toast med pesto, mozzarella & tomat",
+  "ingredients": [
+    { "name": "rostbröd", "amount": "4 skivor" },
+    { "name": "pesto", "amount": "2 msk" },
+    { "name": "mozzarella", "amount": "125 g" },
+    { "name": "tomat", "amount": "1 st" },
+    { "name": "smör", "amount": "1 msk" }
+  ],
+  "time": 10,
+  "tags": ["lunch","snabbt","veg"],
+  "Instructions": [
+    "Bred pesto på bröden.",
+    "Lägg på tomatskivor & mozzarella.",
+    "Stek eller grilla toasten gyllene."
+  ]
+},
+
+{
+  "id": 18,
+  "title": "Köttfärspaj med osttäcke",
+  "ingredients": [
+    { "name": "köttfärs", "amount": "400 g" },
+    { "name": "pajdeg", "amount": "1 rulle" },
+    { "name": "lök", "amount": "1" },
+    { "name": "creme fraiche", "amount": "2 dl" },
+    { "name": "ost", "amount": "2 dl" }
+  ],
+  "time": 45,
+  "tags": ["middag","kött"],
+  "Instructions": [
+    "Förgrädda pajskalet 10 min.",
+    "Stek lök + färs, salta och peppra.",
+    "Fyll pajen, blanda creme fraiche + ost ovanpå.",
+    "Grädda 25–30 min tills gyllene."
+  ]
+},
+
+{
+  "id": 19,
+  "title": "Ugnsgratinerad broccoli med ost & vitlök",
+  "ingredients": [
+    { "name": "broccoli", "amount": "1 huvud" },
+    { "name": "grädde", "amount": "1,5 dl" },
+    { "name": "riven ost", "amount": "2 dl" },
+    { "name": "vitlök", "amount": "1 klyfta" }
+  ],
+  "time": 25,
+  "tags": ["vegetariskt","enkelt"],
+  "Instructions": [
+    "Dela broccoli i buketter, förkoka 3 min.",
+    "Lägg i form, häll över grädde + vitlök.",
+    "Toppa med ost och gratinera 15–18 min."
+  ]
+},
+
+{
+  "id": 20,
+  "title": "Fläskfilégryta med champinjoner & soja",
+  "ingredients": [
+    { "name": "fläskfilé", "amount": "500 g" },
+    { "name": "champinjoner", "amount": "250 g" },
+    { "name": "grädde", "amount": "2,5 dl" },
+    { "name": "soja", "amount": "1 msk" },
+    { "name": "lök", "amount": "1 st" }
+  ],
+  "time": 35,
+  "tags": ["gryta","helg"],
+  "Instructions": [
+    "Strimla filén, stek gyllene.",
+    "Tillsätt lök + svamp och fräs 5 min.",
+    "Häll i grädde + soja och sjud 10 min."
+  ]
+},
+
+{
+  "id": 21,
+  "title": "Fransk omelett med persilja & smör",
+  "ingredients": [
+    { "name": "ägg", "amount": "3" },
+    { "name": "smör", "amount": "1 msk" },
+    { "name": "persilja", "amount": "1 msk" },
+    { "name": "salt & peppar", "amount": "efter smak" }
+  ],
+  "time": 7,
+  "tags": ["frukost","snabbt"],
+  "Instructions": [
+    "Vispa ihop ägg + kryddor.",
+    "Häll i panna med smör på medelvärme.",
+    "Vik när den är krämig — inte torr!"
+  ]
+},
+
+{
+  "id": 22,
+  "title": "Citron- & honungskyckling i ugn",
+  "ingredients": [
+    { "name": "kycklingklubbor", "amount": "4 st" },
+    { "name": "citron", "amount": "1 st" },
+    { "name": "honung", "amount": "1 msk" },
+    { "name": "potatis", "amount": "600 g" },
+    { "name": "olivolja", "amount": "1 msk" }
+  ],
+  "time": 55,
+  "tags": ["kyckling","ugnsrätt"],
+  "Instructions": [
+    "Lägg potatis + kyckling i form.",
+    "Ringla honung, citron & olja över.",
+    "Ugn 200°C i 45–55 min tills skinnet är knaprigt."
+  ]
+}
+
+]

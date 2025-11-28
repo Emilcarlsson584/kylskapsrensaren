@@ -172,7 +172,7 @@ const handleAiSearch = async () => {
         <div className="brand">
           <div className="logo">K</div>
           <div>
-            <div className="brand-title">kylskåpsrensaren.se</div>
+            <div className="brand-title">Smartkök.com</div>
             <div className="brand-subtitle">Rensa kylen, inte planeten.</div>
           </div>
         </div>

@@ -111,7 +111,7 @@ const handleSearch = async () => {
     // bygg en enkel kommatext med bara namnen: "mjölk, ägg, pasta"
     const namesOnly = buildNamesOnlyString(ingredients);
 
-    const response = await fetch("http://localhost:3000/api/recipes", {
+    const response = await fetch(`${API_BASE}/api/recipes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -140,7 +140,7 @@ const handleAiSearch = async () => {
     // bygg en text med mängd + enhet: "2 dl mjölk, 3 st ägg"
     const detailed = buildDetailedString(ingredients);
 
-    const response = await fetch("http://localhost:3000/api/ai-recipes", {
+    const response = await fetch(`${API_BASE}/api/ai-recipes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

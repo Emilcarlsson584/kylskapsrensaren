@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./index.css";
 
+const API_BASE = import.meta.env.DEV ? "http://localhost:3000" : "";
+
 function buildNamesOnlyString(ingredients) {
   return ingredients
     .filter((ing) => ing.name && ing.name.trim() !== "")

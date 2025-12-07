@@ -1,12 +1,34 @@
-const fs = require("fs");
-const path = require("path");
+// api/recipes.js
+import fs from "fs";
+import path from "path";
 
-// Läs in samma recipes.json som din nuvarande server
+// Läs in samma recipes.json som på din lokala server
 const recipesPath = path.join(process.cwd(), "server", "data", "recipes.json");
 const raw = fs.readFileSync(recipesPath, "utf8");
-const RECIPES = JSON.parse(raw);
+const RAW_RECIPES = JSON.parse(raw);
 
-// Samma typ av matchning som du använder i din Express-server
+// Förbered recept
+const RECIPES = RAW_RECIPES.map((r, idx) => {
+  const ingredientsArray = Array.isArray(r.ingredients) ? r.ingredients : [];
+  const ingredientNames = ingredientsArray
+    .map((ing) => ing.name?.toLowerCase().trim())
+    .filter(Boolean);
+
+  const rawInstr = r.Instructions || r.instructions;
+  const instructionsText = Array.isArray(rawInstr)
+    ? rawInstr.map((step, i) => `Steg ${i + 1}: ${step}`).join(" ")
+    : rawInstr || "";
+
+  return {
+    id: r.id ?? idx,
+    name: r.title,
+    time: r.time,
+    tags: r.tags || [],
+    ingredientNames,
+    instructions: instructionsText,
+  };
+});
+
 function matchRecipes(text) {
   const items = text
     .toLowerCase()
@@ -15,38 +37,30 @@ function matchRecipes(text) {
     .filter(Boolean);
 
   return RECIPES.map((r) => {
-    const recipeIngredients = (r.ingredients || [])
-      .map((ing) => ing.name?.toLowerCase().trim())
-      .filter(Boolean);
-
-    const matched = recipeIngredients.filter((i) => items.includes(i));
+    const hits = r.ingredientNames.filter((i) => items.includes(i));
     const score =
-      recipeIngredients.length > 0
-        ? matched.length / recipeIngredients.length
+      r.ingredientNames.length > 0
+        ? hits.length / r.ingredientNames.length
         : 0;
 
-    const rawInstr = r.Instructions || r.instructions;
-    const instructionsText = Array.isArray(rawInstr)
-      ? rawInstr.map((step, idx) => `Steg ${idx + 1}: ${step}`).join(" ")
-      : rawInstr || "";
+    const missing = r.ingredientNames.filter((i) => !items.includes(i));
 
     return {
       id: r.id,
-      name: r.title,
+      name: r.name,
       time: r.time,
-      tags: r.tags || [],
+      tags: r.tags,
+      instructions: r.instructions,
       score,
-      matched,
-      missing: recipeIngredients.filter((i) => !items.includes(i)),
-      instructions: instructionsText,
+      matched: hits,
+      missing,
     };
   })
     .filter((r) => r.score > 0)
     .sort((a, b) => b.score - a.score);
 }
 
-// Vercel serverless function
-module.exports = (req, res) => {
+export default function handler(req, res) {
   if (req.method !== "POST") {
     res.status(405).json({ error: "Endast POST stöds." });
     return;
@@ -55,4 +69,4 @@ module.exports = (req, res) => {
   const { ingredients = "" } = req.body || {};
   const results = matchRecipes(ingredients);
   res.status(200).json(results);
-};
+}

@@ -1,10 +1,11 @@
-const OpenAI = require("openai");
+// api/ai-recipes.js
+import OpenAI from "openai";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.status(405).json({ error: "Endast POST stöds." });
     return;
@@ -19,7 +20,7 @@ module.exports = async (req, res) => {
 
   try {
     const response = await openai.chat.completions.create({
-      model: "gpt-5-nano",
+      model: "gpt-5-nano", // eller den modell du vill använda
       messages: [
         {
           role: "system",
@@ -45,4 +46,4 @@ Håll svaret lättläst och använd gärna punktlistor.`,
     console.error("Fel från OpenAI:", err);
     res.status(500).json({ error: "Kunde inte generera AI-recept just nu." });
   }
-};
+}

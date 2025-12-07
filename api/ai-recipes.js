@@ -1,4 +1,5 @@
 // api/ai-recipes.js
+
 import OpenAI from "openai";
 
 const openai = new OpenAI({
@@ -20,12 +21,13 @@ export default async function handler(req, res) {
 
   try {
     const response = await openai.chat.completions.create({
-      model: "gpt-5-nano", // eller den modell du vill använda
+      model: "gpt-4.1-mini", // samma som din lokala server
       messages: [
         {
           role: "system",
-          content:
-            "Du är en svensk kock som hjälper användare att laga mat med det de har hemma. Svara kort och tydligt på svenska.",
+          content: `
+Du är en svensk kock som hjälper användare att laga mat med det de har hemma.
+Svara kort och tydligt på svenska.`,
         },
         {
           role: "user",

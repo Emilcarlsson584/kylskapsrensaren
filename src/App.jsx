@@ -10,22 +10,6 @@ function buildNamesOnlyString(ingredients) {
     .join(", ");
 }
 
-function buildDetailedString(ingredients) {
-  return ingredients
-    .filter((ing) => ing.name && ing.name.trim() !== "")
-    .map((ing) => {
-      const name = ing.name.trim();
-      const amount = ing.amount?.trim();
-      const unit = ing.unit?.trim();
-
-      if (!amount && !unit) return name;
-      if (amount && !unit) return `${amount} ${name}`;
-      if (!amount && unit) return `${unit} ${name}`;
-      return `${amount} ${unit} ${name}`;
-    })
-    .join(", ");
-}
-
 
 
 
@@ -89,7 +73,7 @@ const quickTags = ["ägg", "mjölk", "ost", "pasta", "lök", "potatis", "morot"]
 
 function App() {
   const [ingredients, setIngredients] = useState([
-  { name: "", amount: "", unit: "" },
+  { name: "" },
 ]);
 
   const [results, setResults] = useState([]);
@@ -140,14 +124,14 @@ const handleAiSearch = async () => {
     setAiText("");
 
     // bygg en text med mängd + enhet: "2 dl mjölk, 3 st ägg"
-    const detailed = buildDetailedString(ingredients);
+    const namesOnly = buildNamesOnlyString(ingredients);
 
     const response = await fetch(`${API_BASE}/api/ai-recipes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ingredients: detailed }),
+      body: JSON.stringify({ ingredients: namesOnly }),
     });
 
     const data = await response.json();
@@ -196,20 +180,12 @@ const handleAiSearch = async () => {
 </label>
 
 {/* INGREDIENS-LISTA MED MÄNGDER */}
-<div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+<div className="ingredient-list">
   {ingredients.map((ing, index) => (
-    <div
-      key={index}
-      style={{
-        display: "grid",
-        gridTemplateColumns: "2fr 1fr 1fr auto",
-        gap: "0.5rem",
-        alignItems: "center",
-      }}
-    >
+    <div key={index} className="ingredient-row">
       <input
         type="text"
-        placeholder="t.ex. mjölk"
+        placeholder="t.ex. mjöl"
         value={ing.name}
         onChange={(e) => {
           const updated = [...ingredients];
@@ -218,36 +194,16 @@ const handleAiSearch = async () => {
         }}
       />
 
-      <input
-        type="text"
-        placeholder="mängd"
-        value={ing.amount}
-        onChange={(e) => {
-          const updated = [...ingredients];
-          updated[index].amount = e.target.value;
-          setIngredients(updated);
-        }}
-      />
-
-      <input
-        type="text"
-        placeholder="enhet (dl, st, g...)"
-        value={ing.unit}
-        onChange={(e) => {
-          const updated = [...ingredients];
-          updated[index].unit = e.target.value;
-          setIngredients(updated);
-        }}
-      />
-
+      {/* Ta-bort-knapp för ingrediensrad */}
       <button
         type="button"
+        className="ingredient-remove"
         onClick={() => {
           const filtered = ingredients.filter((_, i) => i !== index);
-          setIngredients(filtered.length ? filtered : [{ name: "", amount: "", unit: "" }]);
+          setIngredients(filtered.length ? filtered : [{ name: "" }]);
         }}
       >
-        ❌
+        ✕
       </button>
     </div>
   ))}
@@ -255,12 +211,15 @@ const handleAiSearch = async () => {
   {/* Lägg till ny ingrediens-rad */}
   <button
     type="button"
-    className="tag-btn"
-    onClick={() => setIngredients(prev => [...prev, { name: "", amount: "", unit: "" }])}
+    className="add-ingredient-btn"
+    onClick={() =>
+      setIngredients((prev) => [...prev, { name: "" }])
+    }
   >
     + Lägg till ingrediens
   </button>
 </div>
+
 
 {/* 🔥 SNABBKNAPPAR — NU PÅ RÄTT PLATS 🔥 */}
 <div className="tags-row" style={{ margin: "1rem 0" }}>

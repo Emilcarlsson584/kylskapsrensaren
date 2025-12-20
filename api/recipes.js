@@ -24,7 +24,7 @@ const RECIPES = RAW_RECIPES.map((r, idx) => {
     name: r.title,
     time: r.time,
     tags: r.tags || [],
-    imager: r.image || "", 
+    image: r.image || "", 
     ingredientNames,
     instructions: instructionsText,
   };

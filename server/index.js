@@ -82,6 +82,7 @@ function matchRecipes(text) {
     return {
       id: r.id,
       name: r.title, // <- matchar din RecipeCard
+      image: r.image || r.imageUrl || r.imageURL || "",
       time: r.time,
       tags: r.tags || [],
       instructions: instructionsText,

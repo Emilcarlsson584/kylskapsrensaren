@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Pasta med köttfärssås</title>
+  <desc id="desc">En enkel illustration som används som platshållare för receptbilden.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="50%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="24" fill="url(#bg)"/>
+  <circle cx="240" cy="250" r="140" fill="#fff7ed" stroke="#f59e0b" stroke-width="14" opacity="0.9"/>
+  <circle cx="560" cy="240" r="120" fill="#fef2f2" stroke="#dc2626" stroke-width="12" opacity="0.9"/>
+  <path d="M190 210c80 90 170 60 270 30" fill="none" stroke="#d97706" stroke-width="24" stroke-linecap="round" opacity="0.6"/>
+  <path d="M180 250c90 60 190 60 280 10" fill="none" stroke="#f97316" stroke-width="18" stroke-linecap="round" opacity="0.6"/>
+  <path d="M200 290c110 40 210 30 290-5" fill="none" stroke="#ea580c" stroke-width="14" stroke-linecap="round" opacity="0.6"/>
+  <circle cx="530" cy="210" r="22" fill="#ef4444" opacity="0.8"/>
+  <circle cx="580" cy="260" r="18" fill="#ef4444" opacity="0.8"/>
+  <circle cx="510" cy="270" r="14" fill="#ef4444" opacity="0.8"/>
+  <text x="50%" y="55%" text-anchor="middle" fill="#7c2d12" font-family="'Segoe UI',sans-serif" font-size="44" font-weight="700">
+    Pasta med köttfärssås
+  </text>
+  <text x="50%" y="64%" text-anchor="middle" fill="#92400e" font-family="'Segoe UI',sans-serif" font-size="22">
+    Lägg din egen bild i public/images och byt ut denna url vid behov
+  </text>
+</svg>

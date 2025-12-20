@@ -15,7 +15,7 @@ function buildNamesOnlyString(ingredients) {
 
 function RecipeCard({ recipe }) {
   const percentage = Math.round(recipe.score * 100);
-
+  console.log("RECIPE:", title, "image:", recipe.image);
   return (
     <div className="recipe-card">
             {recipe.image && (
@@ -79,9 +79,12 @@ const quickTags = ["ägg", "mjölk", "ost", "pasta", "lök", "potatis", "morot"]
 
 function RecipeGridCard({ recipe }) {
   const percentage = Math.round((recipe.score || 0) * 100);
+  
+
 
   // Stöd både recipe.title (från recipes.json) och recipe.name (från matchningen)
   const title = recipe.title || recipe.name || "Okänt recept";
+  console.log("RECIPE:", title, "image:", recipe.image);
 
   // Använd lokala bilder (lägg default.jpg i /public/images/recipes/)
   const imageUrl = recipe.image || "/images/default.png";

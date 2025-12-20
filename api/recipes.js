@@ -24,6 +24,7 @@ const RECIPES = RAW_RECIPES.map((r, idx) => {
     name: r.title,
     time: r.time,
     tags: r.tags || [],
+    imager: r.image || "", 
     ingredientNames,
     instructions: instructionsText,
   };
@@ -51,6 +52,7 @@ function matchRecipes(text) {
       time: r.time,
       tags: r.tags,
       instructions: r.instructions,
+      image: r.image,
       score,
       matched: hits,
       missing,

@@ -18,6 +18,15 @@ function RecipeCard({ recipe }) {
 
   return (
     <div className="recipe-card">
+            {recipe.image && (
+        <div className="recipe-card-media">
+          <img
+            src={recipe.image}
+            alt={`Foto på ${recipe.name}`}
+            loading="lazy"
+          />
+        </div>
+      )}
       <div className="recipe-card-header">
         <h3>{recipe.name}</h3>
         <span className="badge">{percentage}% match</span>
@@ -67,6 +76,42 @@ function RecipeCard({ recipe }) {
 }
 
 const quickTags = ["ägg", "mjölk", "ost", "pasta", "lök", "potatis", "morot"];
+
+function RecipeGridCard({ recipe }) {
+  const percentage = Math.round((recipe.score || 0) * 100);
+
+  // Stöd både recipe.title (från recipes.json) och recipe.name (från matchningen)
+  const title = recipe.title || recipe.name || "Okänt recept";
+
+  // Använd lokala bilder (lägg default.jpg i /public/images/recipes/)
+  const imageUrl = recipe.image || "/images/default.png";
+
+  // Smart fallback-beskrivning om description saknas
+  const missingCount = recipe.missing?.length ?? 0;
+  const desc =
+    recipe.description ||
+    (missingCount === 0
+      ? "Du har allt hemma för detta recept."
+      : `Du saknar ${missingCount} ingrediens${missingCount === 1 ? "" : "er"} – klicka för detaljer.`);
+
+  return (
+    <article className="recipe-grid-card">
+      <div className="recipe-grid-image">
+        <img src={imageUrl} alt={title} loading="lazy" />
+      </div>
+
+      <div className="recipe-grid-body">
+        <h3 className="recipe-grid-title">{title}</h3>
+        <p className="recipe-grid-desc">{desc}</p>
+
+        <div className="recipe-grid-footer">
+          <span>⏱️ ca {recipe.time} min</span>
+          <span className="recipe-grid-badge">{percentage}% match</span>
+        </div>
+      </div>
+    </article>
+  );
+}
 
 
 
@@ -283,7 +328,7 @@ const handleAiSearch = async () => {
           ) : (
             <div className="results-list">
               {results.map((recipe) => (
-                <RecipeCard key={recipe.id} recipe={recipe} />
+                <RecipeGridCard key={recipe.id} recipe={recipe} />
               ))}
             </div>
           )}

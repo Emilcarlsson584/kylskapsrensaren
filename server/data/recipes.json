@@ -52,7 +52,7 @@
   {
     "id": 2,
     "title": "Spagetti med köttfärsås",
-    "image": "/images/pasta_med_kottfarsas.png",
+    
     "ingredients": [
       { "name": "gul lök", "amount": "1" },
       { "name": "vitlöksklyftor", "amount": "2" },
@@ -70,6 +70,7 @@
     ],
     "time": 30,
     "tags": ["snabbt", "pasta", "familjefavorit", "kött"],
+    "image": "/images/Pasta_med_kottfarsas.png",
     "Instructions": [
       "Skala och finhacka gul lök och vitlök. Riv eller finhacka morötterna.",
       "Hetta upp matolja i en panna och fräs lök och morötter tills de mjuknar.",

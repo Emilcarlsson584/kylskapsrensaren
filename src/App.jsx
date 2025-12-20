@@ -18,6 +18,15 @@ function RecipeCard({ recipe }) {
 
   return (
     <div className="recipe-card">
+      {recipe.image && (
+        <div className="recipe-card-media">
+          <img
+            src={recipe.image}
+            alt={`Foto på ${recipe.name}`}
+            loading="lazy"
+          />
+        </div>
+      )}
       <div className="recipe-card-header">
         <h3>{recipe.name}</h3>
         <span className="badge">{percentage}% match</span>

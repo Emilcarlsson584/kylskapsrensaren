@@ -51,7 +51,8 @@
   },
   {
     "id": 2,
-    "title": "Spaghetti med köttfärssås",
+    "title": "Spagetti med köttfärsås",
+    "image": "/images/pasta_med_kottfarsas.png",
     "ingredients": [
       { "name": "gul lök", "amount": "1" },
       { "name": "vitlöksklyftor", "amount": "2" },

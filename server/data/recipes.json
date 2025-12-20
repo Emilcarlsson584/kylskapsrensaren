@@ -120,6 +120,7 @@
     ],
     "time": 20,
     "tags": ["snabbt", "vegetariskt", "barnvänligt"],
+    "image": "/images/pannkakor.png",
     "Instructions": [
       "Vispa ihop ägg, hälften av mjölken, mjöl och salt.",
       "Tillsätt resten av mjölken och vispa slätt.",
@@ -140,6 +141,7 @@
     ],
     "time": 35,
     "tags": ["fisk", "enkelt", "nyttigt"],
+    "image": "/images/Ugnsannkaka.png",
     "Instructions": [
       "Sätt ugnen på 200°C.",
       "Lägg lax i ugnsform, salta och peppra.",
@@ -182,6 +184,7 @@
     ],
     "time": 30,
     "tags": ["billigt", "vegetariskt", "lättlagat"],
+    "image": "/images/Ugnsannkaka.png",
     "Instructions": [
       "Sätt ugnen på 225°C.",
       "Vispa ihop smet av ägg, mjölk, mjöl och salt.",
@@ -203,6 +206,7 @@
     ],
     "time": 20,
     "tags": ["fredagsmys", "kött", "familjefavorit"],
+    "image": "/images/tacos.png",
     "Instructions": [
       "Stek köttfärs och krydda med tacokrydda.",
       "Skär grönsaker.",
